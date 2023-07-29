@@ -1,42 +1,28 @@
 import React, { useState } from 'react'
 
 const App = () => {
-  const Data=[
-    {
-      name:"ayush",
-      place:"Mumbai"
-    },{
-      name:"pathak",
-      place:"Ahmedabad"
-    }
-  ]
-  const [text,setText]=useState(Data);
-  const updateData=()=>{
-    setText([
-      {
-        name:"yo",
-        place:"km chho"
-      },{
-        name:"how are you",
-        place:"usa"
-      }
-    ])
+ const[text,setText]=useState(
+  {
+    name:"ayush",
+    place:"ahmedabad",
+    laguage:"ReactJS"
   }
+ );
+ const updatedata=()=>{
+  setText({...text,name:"ayush pathak",
+  })
+ }
+    
   return (
    <>
-   {/* <h1>Array data</h1>
-   <p>{text}</p> */}
-   {
-    text.map((values)=>{
-      return(
-        <>
-        <h2>{values.name}</h2>
-        <h2>{values.place}</h2>
-      </>
-      )
-    })
-   }
-   <button onClick={updateData}>Click Me</button>
+   <div className="container">
+  <h1>{text.name}</h1>
+  <h1>{text.place}</h1>
+  <h1>{text.laguage}</h1>
+  <button onClick={updatedata} className="btn btn-dark">Click Me</button>
+  </div>
+
+   
    </>  
   )
 }
