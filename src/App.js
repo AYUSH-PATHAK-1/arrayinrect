@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
 
-function App() {
+const App = () => {
+  const Data=[
+    {
+      name:"ayush",
+      place:"Mumbai"
+    },{
+      name:"pathak",
+      place:"Ahmedabad"
+    }
+  ]
+  const [text,setText]=useState(Data);
+  const updateData=()=>{
+    setText([
+      {
+        name:"yo",
+        place:"km chho"
+      },{
+        name:"how are you",
+        place:"usa"
+      }
+    ])
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   <>
+   {/* <h1>Array data</h1>
+   <p>{text}</p> */}
+   {
+    text.map((values)=>{
+      return(
+        <>
+        <h2>{values.name}</h2>
+        <h2>{values.place}</h2>
+      </>
+      )
+    })
+   }
+   <button onClick={updateData}>Click Me</button>
+   </>  
+  )
 }
 
-export default App;
+export default App
